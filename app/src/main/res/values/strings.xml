@@ -9,4 +9,9 @@
     <string name="title_activity_login">LoginActivity</string>
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="title_activity_project_detail">ProjectDetailActivity</string>
+    <string name="tab_text_1">Project Details</string>
+    <string name="tab_text_2">Bidders</string>
+    <string name="tab_text_3">Contacts</string>
+    <string name="section_format">Hello World from section: %1$d</string>
 </resources>

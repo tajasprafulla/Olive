@@ -27,7 +27,11 @@
             android:theme="@style/FullscreenTheme" />
         <activity android:name=".SignUpActivity" />
         <activity android:name=".ForgetPasswordActivity" />
-        <activity android:name=".NewsActivity"></activity>
+        <activity android:name=".NewsActivity" />
+        <activity
+            android:name=".ProjectDetailActivity"
+            android:label="@string/title_activity_project_detail"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>
