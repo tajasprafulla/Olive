@@ -17,6 +17,7 @@ import android.view.MenuItem;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.ListView;
 
 public class DashBoardActivity extends AppCompatActivity
@@ -44,14 +45,7 @@ public class DashBoardActivity extends AppCompatActivity
 
         projectList = findViewById(R.id.projectList);
         projectList.setAdapter(new ProjectListAdapter());
-        projectList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-                Intent projectSearch = new Intent(DashBoardActivity.this, ProjectDetailActivity.class);
-                startActivity(projectSearch);
-            }
-        });
 
     }
 
@@ -122,7 +116,7 @@ public class DashBoardActivity extends AppCompatActivity
 
         @Override
         public int getCount() {
-            return 6;
+            return 8;
         }
 
         @Override
@@ -142,6 +136,14 @@ public class DashBoardActivity extends AppCompatActivity
                 final LayoutInflater layoutInflater = LayoutInflater.from(DashBoardActivity.this);
                 convertView = layoutInflater.inflate(R.layout.item_dashboard, null);
             }
+             ImageView imageView2 = convertView.findViewById(R.id.imageView2);
+             imageView2.setOnClickListener(new View.OnClickListener() {
+                 @Override
+                 public void onClick(View v) {
+                     Intent projectSearch = new Intent(DashBoardActivity.this, ProjectDetailActivity.class);
+                     startActivity(projectSearch);
+                 }
+             });
             return convertView;
         }
     }
