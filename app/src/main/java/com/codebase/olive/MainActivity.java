@@ -1,10 +1,8 @@
 package com.codebase.olive;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -14,24 +12,25 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.BaseAdapter;
-import android.widget.ListView;
 
-public class DashBoardActivity extends AppCompatActivity
+public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-
-    private ListView projectList;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_dash_board);
-
+        setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
+            }
+        });
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -41,18 +40,6 @@ public class DashBoardActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-
-        projectList = findViewById(R.id.projectList);
-        projectList.setAdapter(new ProjectListAdapter());
-        projectList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
-                Intent projectSearch = new Intent(DashBoardActivity.this, ProjectDetailActivity.class);
-                startActivity(projectSearch);
-            }
-        });
-
     }
 
     @Override
@@ -68,7 +55,7 @@ public class DashBoardActivity extends AppCompatActivity
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.dash_board, menu);
+        getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
 
@@ -94,55 +81,21 @@ public class DashBoardActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_camera) {
-
-            Intent projectSearch = new Intent(DashBoardActivity.this, ForgetPasswordActivity.class);
-            startActivity(projectSearch);
             // Handle the camera action
         } else if (id == R.id.nav_gallery) {
 
         } else if (id == R.id.nav_slideshow) {
 
-        } else if (id == R.id.nav_news) {
+        } else if (id == R.id.nav_manage) {
 
-            Intent projectSearch = new Intent(DashBoardActivity.this, NewsActivity.class);
-            startActivity(projectSearch);
-
-        }/* else if (id == R.id.nav_share) {
+        } else if (id == R.id.nav_share) {
 
         } else if (id == R.id.nav_send) {
 
-        }*/
+        }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
-    }
-
-    public class ProjectListAdapter extends BaseAdapter {
-
-        @Override
-        public int getCount() {
-            return 6;
-        }
-
-        @Override
-        public Object getItem(int position) {
-            return null;
-        }
-
-        @Override
-        public long getItemId(int position) {
-            return 0;
-        }
-
-        @Override
-        public View getView(int position, View convertView, ViewGroup parent) {
-
-            if (convertView == null) {
-                final LayoutInflater layoutInflater = LayoutInflater.from(DashBoardActivity.this);
-                convertView = layoutInflater.inflate(R.layout.item_dashboard, null);
-            }
-            return convertView;
-        }
     }
 }

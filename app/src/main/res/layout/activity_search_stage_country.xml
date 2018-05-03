@@ -14,6 +14,7 @@
         android:layout_marginEnd="25dp"
         android:layout_marginStart="25dp"
         android:layout_marginTop="16dp"
+        android:background="@drawable/rounded_border"
         app:layout_constraintBottom_toTopOf="@+id/spinnerCountry"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -26,14 +27,15 @@
         android:layout_marginBottom="28dp"
         android:layout_marginEnd="25dp"
         android:layout_marginStart="25dp"
-        app:layout_constraintBottom_toTopOf="@+id/button"
+        android:background="@drawable/rounded_border"
+        app:layout_constraintBottom_toTopOf="@+id/btnSearch"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/spinnerStage" />
 
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/btnSearch"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_below="@+id/rlPassword"

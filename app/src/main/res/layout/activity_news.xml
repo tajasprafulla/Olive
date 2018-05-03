@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.codebase.olive.NewsActivity">
+    tools:context="com.codebase.olive.NewsActivity"
+    android:id="@+id/container">
 
     <TextView
         android:id="@+id/tvNewsHeadline"
@@ -22,7 +23,7 @@
     <TextView
         android:id="@+id/tvNewsSubHeadline"
         android:layout_width="wrap_content"
-        android:layout_height="244dp"
+        android:layout_height="24dp"
         android:ellipsize="end"
         android:lines="1"
         android:singleLine="true"

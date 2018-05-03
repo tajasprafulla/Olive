@@ -3,16 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.codebase.olive.DashBoardActivity"
-    tools:showIn="@layout/app_bar_dash_board">
+    tools:context="com.codebase.olive.MainActivity"
+    tools:showIn="@layout/app_bar_main">
 
-    <ListView
-        android:id="@+id/projectList"
-        android:layout_width="match_parent"
-        android:layout_height="500dp"
-        android:layout_marginTop="52dp">
-
-    </ListView>
 </android.support.constraint.ConstraintLayout>

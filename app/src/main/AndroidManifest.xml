@@ -24,8 +24,11 @@
             android:name=".DashBoardActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/title_activity_login"
-            android:theme="@style/FullscreenTheme" />
-        <activity android:name=".SignUpActivity" />
+            android:theme="@style/AppTheme.NoActionBar"
+             />
+        <activity
+            android:name=".SignUpActivity"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity android:name=".ForgetPasswordActivity" />
         <activity android:name=".NewsActivity" />
         <activity
@@ -34,7 +37,12 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".SearchStageCountryActivity" />
         <activity android:name=".NewsDetailActivity" />
-        <activity android:name=".ProjectSearchActivity"></activity>
+        <activity android:name=".ProjectSearchActivity" />
+        <activity android:name=".SplashActivity" />
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/title_activity_main"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>
