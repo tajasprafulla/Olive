@@ -17,6 +17,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 public class ProjectDetailActivity extends AppCompatActivity {
@@ -52,29 +54,37 @@ public class ProjectDetailActivity extends AppCompatActivity {
         mViewPager.setAdapter(mSectionsPagerAdapter);
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
+        tabLayout.setupWithViewPager(mViewPager);
+
+        View ViewOne = (RelativeLayout) LayoutInflater.from(this).inflate(R.layout.custom_tab, null);
+        TextView tabOne = ViewOne.findViewById(R.id.tab);
+        ImageView tabIvOne = ViewOne.findViewById(R.id.tabImage);
+        tabOne.setText("Project Details");
+        tabIvOne.setBackground(getResources().getDrawable(R.drawable.project_contacts));
+        tabLayout.getTabAt(0).setCustomView(ViewOne);
+
+        //============================
+        View ViewTwo = (RelativeLayout) LayoutInflater.from(this).inflate(R.layout.custom_tab, null);
+        TextView tabTwo = ViewTwo.findViewById(R.id.tab);
+        ImageView tabIvTwo = ViewTwo.findViewById(R.id.tabImage);
+        tabTwo.setText("Bidders");
+        tabIvTwo.setBackground(getResources().getDrawable(R.drawable.project_contacts));
+        tabLayout.getTabAt(1).setCustomView(ViewTwo);
+
+        //===========================
+
+        View ViewThree = (RelativeLayout) LayoutInflater.from(this).inflate(R.layout.custom_tab, null);
+        TextView tabThree = ViewThree.findViewById(R.id.tab);
+        ImageView tabIvThree = ViewThree.findViewById(R.id.tabImage);
+        tabThree.setText("Contacts");
+        tabIvThree.setBackground(getResources().getDrawable(R.drawable.project_contacts));
+        tabLayout.getTabAt(2).setCustomView(ViewThree);
+
 
         mViewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
         tabLayout.addOnTabSelectedListener(new TabLayout.ViewPagerOnTabSelectedListener(mViewPager));
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
-
     }
-
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_project_detail, menu);
-        return true;
-    }
-
 
     /**
      * A placeholder fragment containing a simple view.
@@ -109,6 +119,54 @@ public class ProjectDetailActivity extends AppCompatActivity {
         }
     }
 
+    public static class PlaceholderFragment2 extends Fragment {
+
+        private static final String ARG_SECTION_NUMBER = "section_number";
+
+        public PlaceholderFragment2() {
+        }
+
+
+        public static PlaceholderFragment2 newInstance(int sectionNumber) {
+            PlaceholderFragment2 fragment = new PlaceholderFragment2();
+            Bundle args = new Bundle();
+            args.putInt(ARG_SECTION_NUMBER, sectionNumber);
+            fragment.setArguments(args);
+            return fragment;
+        }
+
+        @Override
+        public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                                 Bundle savedInstanceState) {
+            View rootView = inflater.inflate(R.layout.fragment_bidders, container, false);
+            return rootView;
+        }
+    }
+
+    public static class PlaceholderFragment3 extends Fragment {
+
+        private static final String ARG_SECTION_NUMBER = "section_number";
+
+        public PlaceholderFragment3() {
+        }
+
+
+        public static PlaceholderFragment3 newInstance(int sectionNumber) {
+            PlaceholderFragment3 fragment = new PlaceholderFragment3();
+            Bundle args = new Bundle();
+            args.putInt(ARG_SECTION_NUMBER, sectionNumber);
+            fragment.setArguments(args);
+            return fragment;
+        }
+
+        @Override
+        public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                                 Bundle savedInstanceState) {
+            View rootView = inflater.inflate(R.layout.fragment_contact, container, false);
+            return rootView;
+        }
+    }
+
     /**
      * A {@link FragmentPagerAdapter} that returns a fragment corresponding to
      * one of the sections/tabs/pages.
@@ -123,7 +181,20 @@ public class ProjectDetailActivity extends AppCompatActivity {
         public Fragment getItem(int position) {
             // getItem is called to instantiate the fragment for the given page.
             // Return a PlaceholderFragment (defined as a static inner class below).
-            return PlaceholderFragment.newInstance(position + 1);
+            Fragment fragment = null;
+            switch (position) {
+                case 0:
+                    fragment = PlaceholderFragment.newInstance(position);
+                    break;
+                case 1:
+                    fragment = PlaceholderFragment2.newInstance(position);
+                    break;
+                case 2:
+                    fragment = PlaceholderFragment3.newInstance(position);
+                    break;
+            }
+
+            return fragment;
         }
 
         @Override

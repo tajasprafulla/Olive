@@ -24,11 +24,10 @@
             android:name=".DashBoardActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/title_activity_login"
-            android:theme="@style/AppTheme.NoActionBar"
-             />
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".SignUpActivity"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".ForgetPasswordActivity" />
         <activity android:name=".NewsActivity" />
         <activity
@@ -42,7 +41,8 @@
         <activity
             android:name=".MainActivity"
             android:label="@string/title_activity_main"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".ChangePasswordActivity"></activity>
     </application>
 
 </manifest>
